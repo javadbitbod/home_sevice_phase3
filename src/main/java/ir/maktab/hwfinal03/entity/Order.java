@@ -2,6 +2,7 @@ package ir.maktab.hwfinal03.entity;
 
 import ir.maktab.hwfinal03.base.domain.BaseEntity;
 import ir.maktab.hwfinal03.entity.enumeration.OrderStatus;
+import ir.maktab.hwfinal03.entity.users.User;
 import jakarta.persistence.Entity;
 
 import jakarta.persistence.ManyToOne;
@@ -16,7 +17,7 @@ import java.time.LocalTime;
 @Getter
 @Setter
 @Entity
-public class Orders extends BaseEntity<Long> {
+public class Order extends BaseEntity<Long> {
 
     @ManyToOne
     private User customer;
