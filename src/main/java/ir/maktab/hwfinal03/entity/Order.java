@@ -2,14 +2,18 @@ package ir.maktab.hwfinal03.entity;
 
 import ir.maktab.hwfinal03.base.domain.BaseEntity;
 import ir.maktab.hwfinal03.entity.enumeration.OrderStatus;
+import ir.maktab.hwfinal03.entity.users.Client;
+import ir.maktab.hwfinal03.entity.users.Expert;
 import ir.maktab.hwfinal03.entity.users.User;
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 
-import jakarta.persistence.ManyToOne;
 import lombok.*;
 
+import java.sql.Time;
 import java.time.LocalDate;
-import java.time.LocalTime;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 @AllArgsConstructor
@@ -19,21 +23,52 @@ import java.time.LocalTime;
 @Entity
 public class Order extends BaseEntity<Long> {
 
-    @ManyToOne
-    private User customer;
+    String description;
+
+    LocalDate localDate;
+
+    Time time;
+
+    @Enumerated(EnumType.STRING)
+    OrderStatus orderStatus;
+
+    double paid;
+
+    double clientOfferedPrice;
+
+    int clientOfferedWorkDuration;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "order_id")
+    List<Offer> offerList = new ArrayList<>();
 
     @ManyToOne
-    private SubService subService;
+    Client client;
 
-    private String description;
+    @ManyToOne
+    Expert expert;
 
-    private Integer price;
+    @ManyToOne
+    SubService subService;
 
-    private LocalDate date;
+    @OneToOne
+    Score score;
 
-    private LocalTime time;
 
-    private String address;
-
-    private OrderStatus status;
+    @Override
+    public String toString() {
+        return "Order{" +
+                "description='" + description + '\'' +
+                ", localDate=" + localDate +
+//                ", localTime=" + localTime +
+                ", orderStatus=" + orderStatus +
+                ", paid=" + paid +
+//                ", client=" + client.getId() +
+//                ", expert=" + expert.getId() +
+//                ", Service=" + service.getName() +
+//                ", Sub Service=" + subServiceList +
+//                ", score=" + score.getScore() +
+//                ", comment=" + comment.getText() +
+                '}';
+    }
 }
