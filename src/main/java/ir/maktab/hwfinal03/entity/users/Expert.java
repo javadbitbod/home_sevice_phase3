@@ -2,9 +2,12 @@ package ir.maktab.hwfinal03.entity.users;
 
 import ir.maktab.hwfinal03.entity.*;
 import jakarta.persistence.*;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.experimental.FieldDefaults;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
-
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class Expert extends User {
 
     byte[] imageData;
