@@ -1,8 +1,10 @@
 package org.example.controller;
 
+import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.example.dto.ServiceDTO;
+import org.example.dto.SubServiceDTO;
 import org.example.service.AdminService;
 import org.example.service.ClientService;
 import org.example.service.ExpertService;
@@ -22,5 +24,10 @@ public class AdminController {
     @PostMapping("/add-service")
     public void addService(@RequestBody @Valid ServiceDTO serviceDTO) {
         adminService.addService(serviceDTO);
+    }
+    @Transactional
+    @PostMapping("/add-sub-service")
+    public void addSubService(@RequestBody @Valid SubServiceDTO subServiceDTO) {
+        adminService.addSubService(subServiceDTO);
     }
 }
