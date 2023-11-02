@@ -5,9 +5,11 @@ import ir.maktab.hwfinal03.entity.enumeration.WorkTimeType;
 import ir.maktab.hwfinal03.entity.users.Expert;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.experimental.FieldDefaults;
 
 import java.sql.Time;
 import java.time.LocalDate;
@@ -15,6 +17,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Getter
 @Setter
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class Offer extends BaseEntity<Long> {
     @ManyToOne
     Expert expert;
