@@ -23,7 +23,7 @@ public class Expert extends User {
     int score;
 
     @ManyToOne
-    Services service;
+    Service service;
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     List<SubService> subServiceList = new ArrayList<>();

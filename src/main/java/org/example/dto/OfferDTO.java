@@ -2,7 +2,7 @@ package org.example.dto;
 
 import lombok.*;
 import lombok.experimental.FieldDefaults;
-import org.example.entity.enums.WorkTimeType;
+import org.example.entity.enumeration.WorkTimeType;
 
 import java.time.LocalDate;
 import java.time.LocalTime;

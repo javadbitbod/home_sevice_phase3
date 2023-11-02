@@ -16,7 +16,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class Services extends BaseEntity<Long> {
+public class Service extends BaseEntity<Long> {
 
      String name;
 
@@ -28,7 +28,7 @@ public class Services extends BaseEntity<Long> {
     @JoinColumn(name = "service_id")
     List<SubService> subServiceList = new ArrayList<>();
 
-    public Services(String name) {
+    public Service(String name) {
         this.name = name;
     }
     @Override

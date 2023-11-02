@@ -24,7 +24,7 @@ public class SubService extends BaseEntity<Long> {
     
     @ManyToOne
     @JoinColumn(name = "service_id")
-    private Services service;
+    private Service service;
     
     private double basePrice;
     

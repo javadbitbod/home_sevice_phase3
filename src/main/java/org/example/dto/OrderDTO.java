@@ -3,7 +3,7 @@ package org.example.dto;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
-import org.example.entity.enums.OrderStatus;
+import org.example.entity.enumeration.OrderStatus;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
