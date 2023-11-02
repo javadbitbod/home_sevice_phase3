@@ -7,9 +7,12 @@ import ir.maktab.hwfinal03.entity.users.enums.Role;
 import ir.maktab.hwfinal03.entity.users.enums.UserStatus;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.experimental.FieldDefaults;
+
 import java.time.LocalDate;
 
 
@@ -17,13 +20,14 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Getter
 @Setter
-@Inheritance(strategy = InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@FieldDefaults(level = AccessLevel.PRIVATE)
 @Entity
 @Table(name = "users")
 public class User extends BaseEntity<Long> {
 
-    @Enumerated(value = EnumType.STRING)
-    Role role;
+//    @Enumerated(value = EnumType.STRING)
+//    Role role;
 
     @OneToOne
     Wallet wallet;
@@ -42,11 +46,6 @@ public class User extends BaseEntity<Long> {
 
     LocalDate signUpDate;
 
-    Boolean locked = false;
-
-    Boolean enabled = false;
-
-    boolean isDeleted;
 
     @Override
     public String toString() {
