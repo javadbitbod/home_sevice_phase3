@@ -28,9 +28,4 @@ public interface OrderRepository extends JpaRepository<Order,Long> {
 
     List<Order> findOrdersByOrderStatus(OrderStatus orderStatus);
 
-    @Query("select count(o.client.id) from Order o where o.client.id= :id")
-    int countOrdersByClientId(Long id);
-
-    @Query("select count(o.client.email) from Order o where o.client.email= :email")
-    Integer countOrdersByClientEmail(String email);
 }
