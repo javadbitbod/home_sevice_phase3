@@ -1,13 +1,12 @@
 package ir.maktab.hwfinal03.entity;
 
 import ir.maktab.hwfinal03.base.domain.BaseEntity;
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import ir.maktab.hwfinal03.entity.users.Expert;
+import jakarta.persistence.*;
+import lombok.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -15,6 +14,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
+@EqualsAndHashCode
 public class SubService extends BaseEntity<Long> {
 
     
@@ -24,9 +24,24 @@ public class SubService extends BaseEntity<Long> {
     @JoinColumn(name = "service_id")
     private Services service;
     
-    private Integer basePrice;
+    private double basePrice;
     
     private String description;
-    
+
+    @ManyToMany(mappedBy = "subServiceList", fetch = FetchType.EAGER)
+    List<Expert> expertList = new ArrayList<>();
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "sub_service_id")
+    List<Order> orderList = new ArrayList<>();
+
+    @Override
+    public String toString() {
+        return "SubService{" +
+                "description='" + description + '\'' +
+                ", basePrice=" + basePrice +
+                ", service=" + service.getName() +
+                '}';
+    }
 
 }
