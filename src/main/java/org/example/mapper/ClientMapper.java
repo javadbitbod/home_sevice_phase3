@@ -2,7 +2,7 @@ package org.example.mapper;
 
 import org.example.dto.ClientDTO;
 import org.example.entity.users.Client;
-import org.example.security.PasswordHash;
+import org.example.entity.PasswordHash;
 
 import java.security.NoSuchAlgorithmException;
 

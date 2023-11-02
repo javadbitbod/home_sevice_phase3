@@ -1,4 +1,4 @@
-package org.example.ripository;
+package org.example.repository;
 
 
 

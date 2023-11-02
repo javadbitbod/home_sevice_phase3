@@ -3,7 +3,7 @@ package org.example.mapper;
 import lombok.RequiredArgsConstructor;
 import org.example.dto.OrderDTO;
 import org.example.entity.Order;
-import org.example.entity.enums.OrderStatus;
+import org.example.entity.enumeration.OrderStatus;
 import org.example.repository.ClientRepository;
 import org.example.repository.SubServiceRepository;
 import org.springframework.stereotype.Component;

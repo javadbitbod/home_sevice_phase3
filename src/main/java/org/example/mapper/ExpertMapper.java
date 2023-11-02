@@ -5,7 +5,7 @@ import org.apache.commons.io.FileUtils;
 import org.example.dto.ExpertDTO;
 import org.example.dto.response.ExpertResponseDTO;
 import org.example.entity.users.Expert;
-import org.example.security.PasswordHash;
+import org.example.entity.PasswordHash;
 import org.mapstruct.Mapper;
 
 import java.io.File;
