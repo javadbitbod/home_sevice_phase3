@@ -1,6 +1,5 @@
 package org.example.entity.users;
 
-import ir.maktab.hwfinal03.entity.*;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
