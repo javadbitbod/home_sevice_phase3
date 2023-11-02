@@ -1,10 +1,10 @@
 package ir.maktab.hwfinal03.entity.enumeration;
 
 public enum OrderStatus {
-    WAITING_FOR_OFFERS,
-    WAITING_FOR_SELECTION,
-    WAITING_FOR_ARRIVAL,
+    WAITING_FOR_EXPERT_OFFER,
+    WAITING_FOR_EXPERT_CHOOSE ,
+    WAITING_FOR_EXPERT_ARRIVES,
     STARTED,
-    COMPLETED,
-    PAID
+    PAID,
+    DONE
 }
