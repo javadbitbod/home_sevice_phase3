@@ -19,9 +19,10 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Getter
 @Setter
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+//@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Entity
+@MappedSuperclass
 @Table(name = "users")
 public class User extends BaseEntity<Long> {
 
