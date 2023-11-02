@@ -24,7 +24,7 @@ public interface ExpertRepository extends JpaRepository<Expert, Long> {
     List<Expert> findExpertsByDoneOrdersNumber();
 
     @Modifying
-    @Query(value = "UPDATE Expert e SET e.wallet.balance = ?2 WHERE e.id = ?1", nativeQuery = false)
+    @Query("update  Expert e set e.wallet.balance = :balance where e.id = :expertId ")
     void updateExpertWallet(Long expertId, double balance);
 
     @Modifying
