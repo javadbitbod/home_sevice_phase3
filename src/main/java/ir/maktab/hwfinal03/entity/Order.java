@@ -8,6 +8,7 @@ import ir.maktab.hwfinal03.entity.users.User;
 import jakarta.persistence.*;
 
 import lombok.*;
+import lombok.experimental.FieldDefaults;
 
 import java.sql.Time;
 import java.time.LocalDate;
@@ -21,6 +22,8 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
+@FieldDefaults(level = AccessLevel.PRIVATE)
+@Table(name = "orders")
 public class Order extends BaseEntity<Long> {
 
     String description;
