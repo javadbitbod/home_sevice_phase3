@@ -4,6 +4,7 @@ import ir.maktab.hwfinal03.base.domain.BaseEntity;
 import ir.maktab.hwfinal03.entity.users.Expert;
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.experimental.FieldDefaults;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,10 +15,10 @@ import java.util.List;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class Services extends BaseEntity<Long> {
 
-    private String name;
+     String name;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "service_id")
