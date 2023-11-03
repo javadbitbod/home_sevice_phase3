@@ -22,4 +22,9 @@ public class ClientController {
     public void signUp(@RequestBody ClientDTO clientDTO) {
         clientService.clientSignUp(clientDTO);
     }
+
+    @PutMapping("/edit-client-password/{clientId}/{newPassword}")
+    public void editClientPassword(@PathVariable Long clientId,@PathVariable String newPassword) {
+        clientService.editClientPassword(clientId, newPassword);
+    }
 }
