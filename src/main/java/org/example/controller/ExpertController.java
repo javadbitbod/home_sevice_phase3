@@ -2,6 +2,7 @@ package org.example.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.example.dto.ExpertDTO;
+import org.example.dto.OfferDTO;
 import org.example.service.ExpertService;
 import org.example.service.OfferService;
 import org.example.service.OrderService;
@@ -30,5 +31,10 @@ public class ExpertController {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @PostMapping("/create-offer")
+    public void createOffer(@RequestBody OfferDTO offerDTO) {
+        expertService.createOffer(offerDTO);
     }
 }
