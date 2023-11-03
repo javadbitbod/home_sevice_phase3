@@ -8,10 +8,7 @@ import org.example.dto.SubServiceDTO;
 import org.example.service.AdminService;
 import org.example.service.ClientService;
 import org.example.service.ExpertService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/admin")
@@ -29,5 +26,10 @@ public class AdminController {
     @PostMapping("/add-sub-service")
     public void addSubService(@RequestBody @Valid SubServiceDTO subServiceDTO) {
         adminService.addSubService(subServiceDTO);
+    }
+
+    @PutMapping("/edit-sub-service/{id}/{newBasePrice}/{newDescription}")
+    public void editSubService(@PathVariable Long id, @PathVariable double newBasePrice, @PathVariable String newDescription) {
+        adminService.editSubService(id, newBasePrice, newDescription);
     }
 }
