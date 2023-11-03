@@ -41,4 +41,8 @@ public class ExpertController {
     public List<OrderDTO> findWaitingOrders(){
         return expertService.findOrdersByOrderStatus(OrderStatus.WAITING_FOR_EXPERT_OFFER);
     }
+    @GetMapping("/show-expert-score/{id}")
+    public int showExpertScore(@PathVariable Long id){
+        return expertService.findById(id).getScore();
+    }
 }

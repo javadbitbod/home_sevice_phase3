@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.example.dto.ClientDTO;
 import org.example.dto.OrderDTO;
 import org.example.service.*;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -32,5 +33,21 @@ public class ClientController {
     @PostMapping("/create-order")
     public void createOrder(@RequestBody OrderDTO orderDTO) {
         clientService.createOrder(orderDTO);
+    }
+    @PutMapping("/change-order-status-to-STARTED/{orderId}")
+    public ResponseEntity<String> changeOrderStatusToStarted(@PathVariable Long orderId) {
+        clientService.changeOrderStatusToStarted(orderId);
+        return ResponseEntity.ok().body("Order status has been changed into STARTED.");
+    }
+
+    @PutMapping("/change-order-status-to-DONE/{orderId}")
+    public ResponseEntity<String> changeOrderStatusToDone(@PathVariable Long orderId) {
+        clientService.changeOrderStatusToDone(orderId);
+        return ResponseEntity.ok().body("Order status has been changed into DONE");
+    }
+    @PutMapping("/pay-by-wallet/{orderId}/{clientId}")
+    public ResponseEntity<String> payByWallet(@PathVariable Long orderId, @PathVariable Long clientId) {
+        clientService.payByWallet(orderId, clientId);
+        return ResponseEntity.ok().body("Payment operation successfully done.");
     }
 }
