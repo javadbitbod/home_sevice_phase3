@@ -3,16 +3,16 @@ package org.example.controller;
 import lombok.RequiredArgsConstructor;
 import org.example.dto.ExpertDTO;
 import org.example.dto.OfferDTO;
+import org.example.dto.OrderDTO;
+import org.example.entity.enums.OrderStatus;
 import org.example.service.ExpertService;
 import org.example.service.OfferService;
 import org.example.service.OrderService;
 import org.example.service.SubServiceService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/expert")
@@ -36,5 +36,9 @@ public class ExpertController {
     @PostMapping("/create-offer")
     public void createOffer(@RequestBody OfferDTO offerDTO) {
         expertService.createOffer(offerDTO);
+    }
+    @GetMapping("/show-WAITING-orders")
+    public List<OrderDTO> findWaitingOrders(){
+        return expertService.findOrdersByOrderStatus(OrderStatus.WAITING_FOR_EXPERT_OFFER);
     }
 }
