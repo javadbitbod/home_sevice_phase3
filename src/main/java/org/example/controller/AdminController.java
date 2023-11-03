@@ -5,6 +5,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.example.dto.ServiceDTO;
 import org.example.dto.SubServiceDTO;
+import org.example.dto.response.ExpertResponseDTO;
 import org.example.entity.users.enums.UserStatus;
 import org.example.service.AdminService;
 import org.example.service.ClientService;
@@ -44,5 +45,9 @@ public class AdminController {
     @DeleteMapping("/remove-expert-from-sub-service/{expertId}/{subServiceId}")
     public void removeExpertFromSubService(@PathVariable Long expertId, @PathVariable Long subServiceId) {
         adminService.removeExpertFromSubService(expertId, subServiceId);
+    }
+    @GetMapping("/show-expert-by-email/{email}")
+    public ExpertResponseDTO findExpertByEmail(@PathVariable String email) {
+        return expertService.findExpertDTOByEmail(email);
     }
 }
